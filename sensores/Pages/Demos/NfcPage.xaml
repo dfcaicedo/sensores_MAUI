@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="sensores.Pages.Demos.NfcPage"
+             Title="Demo NFC">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Label Text="Lector de etiquetas NFC" FontSize="22" FontAttributes="Bold" />
+            <Label x:Name="Estado" LineHeight="1.2" />
+
+            <Button x:Name="AjustesButton" Text="⚙️  Abrir ajustes de NFC" Clicked="OnAjustes" IsVisible="False" />
+
+            <Border x:Name="ResultadoBorder" IsVisible="False" Padding="14" StrokeShape="RoundRectangle 10"
+                    Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Última etiqueta leída" FontAttributes="Bold" />
+                    <Label x:Name="UidLabel" />
+                    <Label x:Name="TecnologiasLabel" />
+                    <Label x:Name="RegistrosLabel" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

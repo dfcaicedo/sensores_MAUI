@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="sensores.Pages.HomePage"
+             Title="Inicio">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Label Text="Sensores con .NET MAUI" FontSize="28" FontAttributes="Bold" />
+            <Label Text="Aprende cómo una app MAUI accede a los sensores y capacidades del teléfono. Cada tema tiene una pestaña de explicación (qué API usar, permisos y código clave) y una de demo funcionando."
+                   LineHeight="1.2" />
+            <Label Text="Abre el menú lateral (☰) o toca una tarjeta para empezar:" Margin="0,8,0,0" Opacity="0.8" />
+
+            <Button Text="📷  Cámara — tomar una foto" Clicked="OnIr" CommandParameter="camara" />
+            <Button Text="🧭  Giroscopio — coordenadas y juego del nivel" Clicked="OnIr" CommandParameter="giroscopio" />
+            <Button Text="📍  GPS — ubicación actual" Clicked="OnIr" CommandParameter="gps" />
+            <Button Text="🗺️  GPS + Cámara — foto geoetiquetada" Clicked="OnIr" CommandParameter="gpscamara" />
+            <Button Text="📁  Archivos — seleccionar y guardar" Clicked="OnIr" CommandParameter="archivos" />
+            <Button Text="📡  NFC — leer etiquetas (Android)" Clicked="OnIr" CommandParameter="nfc" />
+
+            <Label Text="Nota: los sensores de movimiento, NFC y GPS funcionan mejor en un teléfono real. En el emulador o en Windows algunos no están disponibles."
+                   FontSize="12" Opacity="0.7" Margin="0,8,0,0" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

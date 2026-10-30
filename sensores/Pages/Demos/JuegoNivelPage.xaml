@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="sensores.Pages.Demos.JuegoNivelPage"
+             Title="Juego del nivel">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Label Text="Mantén la esfera en el centro" FontSize="22" FontAttributes="Bold" />
+            <Label Text="Inclina el teléfono para mover la esfera (acelerómetro). Permanece dentro del círculo verde el mayor tiempo posible."
+                   FontSize="13" />
+
+            <!-- Arena de 300 x 300: la esfera se mueve con TranslationX/Y -->
+            <Border WidthRequest="300" HeightRequest="300" HorizontalOptions="Center"
+                    StrokeShape="RoundRectangle 150" StrokeThickness="3"
+                    Stroke="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray500}}"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource DarkSecondaryBackground}}">
+                <AbsoluteLayout>
+                    <Ellipse x:Name="Objetivo" Fill="#4400A86B" Stroke="#00A86B" StrokeThickness="2"
+                             AbsoluteLayout.LayoutBounds="102,102,90,90" />
+                    <Ellipse x:Name="Esfera" Fill="{StaticResource Primary}"
+                             AbsoluteLayout.LayoutBounds="0,0,36,36" />
+                </AbsoluteLayout>
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <VerticalStackLayout Grid.Column="0">
+                    <Label Text="Racha actual" HorizontalOptions="Center" Opacity="0.7" />
+                    <Label x:Name="RachaLabel" Text="0.0 s" FontSize="24" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1">
+                    <Label Text="Mejor racha" HorizontalOptions="Center" Opacity="0.7" />
+                    <Label x:Name="MejorLabel" Text="0.0 s" FontSize="24" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <Label x:Name="Estado" FontSize="13" />
+
+            <!-- Solo aparece cuando no hay acelerómetro (por ejemplo en Windows) -->
+            <VerticalStackLayout x:Name="Simulador" IsVisible="False" Spacing="2">
+                <Label Text="Simulador de inclinación (no hay acelerómetro)" FontAttributes="Bold" />
+                <Slider x:Name="SimX" Minimum="-1" Maximum="1" Value="0" />
+                <Slider x:Name="SimY" Minimum="-1" Maximum="1" Value="0" />
+            </VerticalStackLayout>
+
+            <Button Text="Reiniciar" Clicked="OnReiniciar" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="sensores.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:sensores.Pages"
+    xmlns:demos="clr-namespace:sensores.Pages.Demos"
+    xmlns:exp="clr-namespace:sensores.Pages.Explicaciones"
+    Shell.FlyoutBehavior="Flyout"
+    Title="Sensores con .NET MAUI">
+
+    <Shell.FlyoutHeader>
+        <VerticalStackLayout Padding="20,30,20,16">
+            <Label Text="Sensores con .NET MAUI" FontSize="20" FontAttributes="Bold" />
+            <Label Text="Proyecto académico" FontSize="13" Opacity="0.7" />
+        </VerticalStackLayout>
+    </Shell.FlyoutHeader>
+
+    <ShellContent
+        Title="🏠  Inicio"
+        Route="inicio"
+        ContentTemplate="{DataTemplate pages:HomePage}" />
+
+    <FlyoutItem Title="📷  Cámara" Route="camara">
+        <ShellContent Title="Explicación" Route="camara_explicacion"
+                      ContentTemplate="{DataTemplate exp:CamaraExplicacionPage}" />
+        <ShellContent Title="Demo" Route="camara_demo"
+                      ContentTemplate="{DataTemplate demos:CamaraPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="🧭  Giroscopio" Route="giroscopio">
+        <ShellContent Title="Explicación" Route="giroscopio_explicacion"
+                      ContentTemplate="{DataTemplate exp:GiroscopioExplicacionPage}" />
+        <ShellContent Title="Coordenadas" Route="giroscopio_demo"
+                      ContentTemplate="{DataTemplate demos:GiroscopioPage}" />
+        <ShellContent Title="Juego" Route="giroscopio_juego"
+                      ContentTemplate="{DataTemplate demos:JuegoNivelPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="📍  GPS" Route="gps">
+        <ShellContent Title="Explicación" Route="gps_explicacion"
+                      ContentTemplate="{DataTemplate exp:GpsExplicacionPage}" />
+        <ShellContent Title="Demo" Route="gps_demo"
+                      ContentTemplate="{DataTemplate demos:GpsPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="🗺️  GPS + Cámara" Route="gpscamara">
+        <ShellContent Title="Explicación" Route="gpscamara_explicacion"
+                      ContentTemplate="{DataTemplate exp:GpsCamaraExplicacionPage}" />
+        <ShellContent Title="Demo" Route="gpscamara_demo"
+                      ContentTemplate="{DataTemplate demos:GpsCamaraPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="📁  Archivos" Route="archivos">
+        <ShellContent Title="Explicación" Route="archivos_explicacion"
+                      ContentTemplate="{DataTemplate exp:ArchivosExplicacionPage}" />
+        <ShellContent Title="Demo" Route="archivos_demo"
+                      ContentTemplate="{DataTemplate demos:ArchivosPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="📡  NFC" Route="nfc">
+        <ShellContent Title="Explicación" Route="nfc_explicacion"
+                      ContentTemplate="{DataTemplate exp:NfcExplicacionPage}" />
+        <ShellContent Title="Demo" Route="nfc_demo"
+                      ContentTemplate="{DataTemplate demos:NfcPage}" />
+    </FlyoutItem>
+
+</Shell>

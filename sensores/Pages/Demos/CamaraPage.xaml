@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="sensores.Pages.Demos.CamaraPage"
+             Title="Demo cámara">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Label Text="Cámara con MediaPicker" FontSize="22" FontAttributes="Bold" />
+
+            <Border HeightRequest="320" StrokeThickness="1" StrokeShape="RoundRectangle 10"
+                    Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}">
+                <Grid>
+                    <Label x:Name="Vacio" Text="Aún no hay foto" HorizontalOptions="Center" VerticalOptions="Center" Opacity="0.6" />
+                    <Image x:Name="Foto" Aspect="AspectFit" />
+                </Grid>
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button Grid.Column="0" Text="📷  Tomar foto" Clicked="OnTomarFoto" />
+                <Button Grid.Column="1" Text="🖼️  Galería" Clicked="OnGaleria" />
+            </Grid>
+
+            <Label x:Name="Estado" FontSize="13" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="sensores.Pages.Demos.GpsPage"
+             Title="Demo GPS">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Label Text="Ubicación con Geolocation" FontSize="22" FontAttributes="Bold" />
+
+            <Border Padding="14" StrokeShape="RoundRectangle 10"
+                    Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}">
+                <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="14" RowSpacing="6">
+                    <Label Grid.Row="0" Text="Latitud" Opacity="0.7" />
+                    <Label Grid.Row="0" Grid.Column="1" x:Name="LatLabel" Text="—" />
+                    <Label Grid.Row="1" Text="Longitud" Opacity="0.7" />
+                    <Label Grid.Row="1" Grid.Column="1" x:Name="LonLabel" Text="—" />
+                    <Label Grid.Row="2" Text="Altitud" Opacity="0.7" />
+                    <Label Grid.Row="2" Grid.Column="1" x:Name="AltLabel" Text="—" />
+                    <Label Grid.Row="3" Text="Precisión" Opacity="0.7" />
+                    <Label Grid.Row="3" Grid.Column="1" x:Name="PrecLabel" Text="—" />
+                    <Label Grid.Row="4" Text="Velocidad" Opacity="0.7" />
+                    <Label Grid.Row="4" Grid.Column="1" x:Name="VelLabel" Text="—" />
+                    <Label Grid.Row="5" Text="Rumbo" Opacity="0.7" />
+                    <Label Grid.Row="5" Grid.Column="1" x:Name="RumboLabel" Text="—" />
+                    <Label Grid.Row="6" Text="Hora" Opacity="0.7" />
+                    <Label Grid.Row="6" Grid.Column="1" x:Name="HoraLabel" Text="—" />
+                </Grid>
+            </Border>
+
+            <Label x:Name="Estado" FontSize="13" />
+
+            <Button x:Name="ObtenerButton" Text="📍  Obtener ubicación" Clicked="OnObtener" />
+            <Button x:Name="SeguirButton" Text="▶  Seguir en tiempo real" Clicked="OnSeguir" />
+            <Button x:Name="MapaButton" Text="🗺️  Abrir en el mapa" Clicked="OnMapa" IsEnabled="False" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

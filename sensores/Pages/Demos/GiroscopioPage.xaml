@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="sensores.Pages.Demos.GiroscopioPage"
+             Title="Coordenadas del giroscopio">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+            <Label Text="Giroscopio: velocidad angular (rad/s)" FontSize="22" FontAttributes="Bold" />
+            <Label x:Name="Estado" FontSize="13" />
+
+            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                <Border Grid.Column="0" Padding="10" StrokeShape="RoundRectangle 10"
+                        Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}">
+                    <VerticalStackLayout>
+                        <Label Text="Eje X" HorizontalOptions="Center" Opacity="0.7" />
+                        <Label x:Name="XLabel" Text="0.000" FontSize="22" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border Grid.Column="1" Padding="10" StrokeShape="RoundRectangle 10"
+                        Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}">
+                    <VerticalStackLayout>
+                        <Label Text="Eje Y" HorizontalOptions="Center" Opacity="0.7" />
+                        <Label x:Name="YLabel" Text="0.000" FontSize="22" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border Grid.Column="2" Padding="10" StrokeShape="RoundRectangle 10"
+                        Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}">
+                    <VerticalStackLayout>
+                        <Label Text="Eje Z" HorizontalOptions="Center" Opacity="0.7" />
+                        <Label x:Name="ZLabel" Text="0.000" FontSize="22" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+
+            <Label Text="Rotación acumulada (se integra la velocidad angular en el tiempo)" Margin="0,8,0,0" />
+            <Border HeightRequest="200" StrokeShape="RoundRectangle 10"
+                    Stroke="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}">
+                <Border x:Name="Cubo" WidthRequest="110" HeightRequest="110"
+                        HorizontalOptions="Center" VerticalOptions="Center"
+                        StrokeShape="RoundRectangle 12" StrokeThickness="0"
+                        BackgroundColor="{StaticResource Primary}">
+                    <Label Text="MAUI" TextColor="White" FontAttributes="Bold" FontSize="22"
+                           HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+            </Border>
+            <Label x:Name="AngulosLabel" HorizontalOptions="Center" FontSize="13" />
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button x:Name="ToggleButton" Grid.Column="0" Text="Detener" Clicked="OnToggle" />
+                <Button Grid.Column="1" Text="Reiniciar rotación" Clicked="OnReiniciar" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
