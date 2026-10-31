@@ -68,6 +68,11 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
 	</ItemGroup>
-	
+
+	<!-- Las carpetas de classes quedan de solo lectura y el siguiente build falla con XARDF7024 (acceso denegado) al borrarlas. -->
+	<Target Name="QuitarSoloLecturaClasesJava" BeforeTargets="_CompileJava" Condition="$([MSBuild]::IsOSPlatform('windows')) And '$(TargetFramework)' == 'net10.0-android'">
+		<Exec Command="if exist &quot;$(IntermediateOutputPath)android\bin\classes&quot; attrib -R &quot;$(IntermediateOutputPath)android\bin\classes&quot; /D &amp; attrib -R &quot;$(IntermediateOutputPath)android\bin\classes\*&quot; /S /D" ContinueOnError="true" />
+	</Target>
+
 </Project>
 

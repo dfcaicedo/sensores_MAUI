@@ -8,7 +8,7 @@ namespace sensores.Pages
         static readonly Color BordeClaro = Color.FromArgb("#C8C8C8");
         static readonly Color BordeOscuro = Color.FromArgb("#404040");
 
-        public ExplicacionPage(ExplicacionInfo info)
+        public ExplicacionPage(ExplicacionInfo info, string rutaDemo)
         {
             Title = "Explicación";
 
@@ -21,6 +21,7 @@ namespace sensores.Pages
                 FontAttributes = FontAttributes.Bold
             });
             pila.Add(new Label { Text = info.Resumen, FontSize = 15, LineHeight = 1.2 });
+            pila.Add(BotonDemo(rutaDemo));
 
             pila.Add(Encabezado("Cómo se usa"));
             for (int i = 0; i < info.Pasos.Length; i++)
@@ -43,7 +44,16 @@ namespace sensores.Pages
                 Content = new Label { Text = info.Nota, LineHeight = 1.2 }
             });
 
+            pila.Add(BotonDemo(rutaDemo));
+
             Content = new ScrollView { Content = pila };
+        }
+
+        static Button BotonDemo(string rutaDemo)
+        {
+            var boton = new Button { Text = "▶  Ir a la demo", Margin = new Thickness(0, 8, 0, 0) };
+            boton.Clicked += async (_, _) => await Shell.Current.GoToAsync($"//{rutaDemo}");
+            return boton;
         }
 
         static Label Encabezado(string texto)
